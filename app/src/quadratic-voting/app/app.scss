@@ -1,0 +1,75 @@
+@import '../variables.scss';
+
+qv-app {
+	display: block;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	margin: 20px;
+	padding: 40px;
+	background: white;
+	box-shadow: 1px 2px 14px 0px rgba(black, .2);
+	> .inner {
+		> .instructions {
+			padding-bottom: 20px;
+		}
+		// > .votes-total {}
+		> .votes-remaining {
+			border-top: 1px solid grey;
+			padding: 10px 0;
+			> .label {
+				// display: inline-block;
+				// width: 200px;
+			}
+			> .vote-meter {
+				// see below
+				
+			}
+		}
+		> .ballot-item {
+			border-top: 1px solid grey;
+			padding: 20px 0 10px;
+			> h4.question {
+				margin-top: 0;
+			}
+			> ul.options {
+				> li.option {
+					padding: 4px 4px;
+					$border: 1px solid rgba(black, .1);
+					border-top: $border;
+					&:last-child {
+						border-bottom: $border;
+					}
+					> .buttons {
+						display: inline-block;
+						width: 60px;
+						> button {
+							font-size: 16px;
+							border: 0;
+							background: rgba(black, .1);
+							border-radius: 1px;
+						}
+					}
+					> .label {
+						display: inline-block;
+						width: 100px;
+					}
+					> .vote-count {
+						display: inline-block;
+						width: 100px;
+					}
+					> .vote-meter {
+						// see below
+					}
+				}
+			}
+		}
+	}
+
+	.vote-meter {
+		display: inline-block;
+		min-width: 2px;
+		background: rgba(green, .5);
+		height: 10px;
+	}
+
+}

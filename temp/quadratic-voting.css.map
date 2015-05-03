@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,gBAAiB;EAChB,WAAW,EAAE,4BAA4B;EACzC,SAAS,EAAE,IAAI",
+"sources": ["../app/src/quadratic-voting/quadratic-voting.scss"],
+"names": [],
+"file": "quadratic-voting.css"
+}

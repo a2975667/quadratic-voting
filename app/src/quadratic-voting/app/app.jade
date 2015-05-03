@@ -1,0 +1,22 @@
+.inner
+	.instructions
+		h1 What's for dinner?
+		p Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you quadratically more.
+		h4 Votes cost:
+		ul
+			li 1 vote : 1 token
+			li(ng-repeat='i in [2,3,4]') {{i}} vote : {{getVoteCost(i)}} tokens
+			//.votes-total {{votesPerPerson}} votes per person
+	.votes-remaining
+		.label You have {{getVotesRemaining()}} tokens left
+		.vote-meter(style='width: {{(getVotesRemaining() * 10)}}px')
+	.ballot-item(ng-repeat='ballotItem in ballotItems')
+		h4.question {{ballotItem.question}}
+		ul.options
+			li.option(ng-repeat='option in ballotItem.options')
+				.buttons
+					button(ng-click='addVote(option)' ng-disabled='!doShowAddVoteButton(option)') +
+					button(ng-click='removeVote(option)' ng-show='doShowRemoveVoteButton(option)') -
+				.label {{option.name}}
+				.vote-count {{getVoteCount(option)}} votes
+				.vote-meter(style='width: {{(getVoteCount(option) * 20)}}px')

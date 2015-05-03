@@ -1,0 +1,44 @@
+qv-app {
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  margin: 20px;
+  padding: 40px;
+  background: white;
+  box-shadow: 1px 2px 14px 0px rgba(0, 0, 0, 0.2); }
+  qv-app > .inner > .instructions {
+    padding-bottom: 20px; }
+  qv-app > .inner > .votes-remaining {
+    border-top: 1px solid grey;
+    padding: 10px 0; }
+  qv-app > .inner > .ballot-item {
+    border-top: 1px solid grey;
+    padding: 20px 0 10px; }
+    qv-app > .inner > .ballot-item > h4.question {
+      margin-top: 0; }
+    qv-app > .inner > .ballot-item > ul.options > li.option {
+      padding: 4px 4px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1); }
+      qv-app > .inner > .ballot-item > ul.options > li.option:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+      qv-app > .inner > .ballot-item > ul.options > li.option > .buttons {
+        display: inline-block;
+        width: 60px; }
+        qv-app > .inner > .ballot-item > ul.options > li.option > .buttons > button {
+          font-size: 16px;
+          border: 0;
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 1px; }
+      qv-app > .inner > .ballot-item > ul.options > li.option > .label {
+        display: inline-block;
+        width: 100px; }
+      qv-app > .inner > .ballot-item > ul.options > li.option > .vote-count {
+        display: inline-block;
+        width: 100px; }
+  qv-app .vote-meter {
+    display: inline-block;
+    min-width: 2px;
+    background: rgba(0, 128, 0, 0.5);
+    height: 10px; }
+
+/*# sourceMappingURL=app.css.map */

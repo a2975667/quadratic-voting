@@ -1,0 +1,10 @@
+{
+  "name": "quadratic-voting",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.3.0",
+    "jquery": "~2.1.4"
+  },
+  "appPath": "app",
+  "moduleName": "QuadraticVoting"
+}

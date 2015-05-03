@@ -1,0 +1,31 @@
+
+<div class="inner">
+  <div class="instructions">
+    <h1>What's for dinner?</h1>
+    <p>Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you quadratically more.</p>
+    <h4>Votes cost:</h4>
+    <ul>
+      <li>1 vote : 1 token</li>
+      <li ng-repeat="i in [2,3,4]">{{i}} vote : {{getVoteCost(i)}} tokens</li>
+      <!--.votes-total {{votesPerPerson}} votes per person-->
+    </ul>
+  </div>
+  <div class="votes-remaining">
+    <div class="label">You have {{getVotesRemaining()}} tokens left</div>
+    <div style="width: {{(getVotesRemaining() * 10)}}px" class="vote-meter"></div>
+  </div>
+  <div ng-repeat="ballotItem in ballotItems" class="ballot-item">
+    <h4 class="question">{{ballotItem.question}}</h4>
+    <ul class="options">
+      <li ng-repeat="option in ballotItem.options" class="option">
+        <div class="buttons">
+          <button ng-click="addVote(option)" ng-disabled="!doShowAddVoteButton(option)">+</button>
+          <button ng-click="removeVote(option)" ng-show="doShowRemoveVoteButton(option)">-</button>
+        </div>
+        <div class="label">{{option.name}}</div>
+        <div class="vote-count">{{getVoteCount(option)}} votes</div>
+        <div style="width: {{(getVoteCount(option) * 20)}}px" class="vote-meter"></div>
+      </li>
+    </ul>
+  </div>
+</div>
