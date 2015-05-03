@@ -1,0 +1,201 @@
+application: quadratic-voting
+version: 1
+runtime: php
+api_version: 1
+
+default_expiration: "30d"
+
+handlers:
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
+
+# Serve static files, under the root directory.
+- url: /(.*\.(appcache|manifest))
+  mime_type: text/cache-manifest
+  static_files: app/\1
+  upload: app/(.*\.(appcache|manifest))
+  expiration: "0m"
+
+- url: /(.*\.atom)
+  mime_type: application/atom+xml
+  static_files: app/\1
+  upload: app/(.*\.atom)
+  expiration: "1h"
+
+- url: /(.*\.crx)
+  mime_type: application/x-chrome-extension
+  static_files: app/\1
+  upload: app/(.*\.crx)
+
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: app/\1
+  upload: app/(.*\.css)
+
+- url: /(.*\.eot)
+  mime_type: application/vnd.ms-fontobject
+  static_files: app/\1
+  upload: app/(.*\.eot)
+
+- url: /(.*\.htc)
+  mime_type: text/x-component
+  static_files: app/\1
+  upload: app/(.*\.htc)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: app/\1
+  upload: app/(.*\.html)
+  expiration: "1h"
+
+- url: /(.*\.ico)
+  mime_type: image/x-icon
+  static_files: app/\1
+  upload: app/(.*\.ico)
+  expiration: "7d"
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: app/\1
+  upload: app/(.*\.js)
+
+- url: /(.*\.json)
+  mime_type: application/json
+  static_files: app/\1
+  upload: app/(.*\.json)
+  expiration: "1h"
+
+- url: /(.*\.m4v)
+  mime_type: video/m4v
+  static_files: app/\1
+  upload: app/(.*\.m4v)
+
+- url: /(.*\.mp4)
+  mime_type: video/mp4
+  static_files: app/\1
+  upload: app/(.*\.mp4)
+
+- url: /(.*\.(ogg|oga))
+  mime_type: audio/ogg
+  static_files: app/\1
+  upload: app/(.*\.(ogg|oga))
+
+- url: /(.*\.ogv)
+  mime_type: video/ogg
+  static_files: app/\1
+  upload: app/(.*\.ogv)
+
+- url: /(.*\.otf)
+  mime_type: font/opentype
+  static_files: app/\1
+  upload: app/(.*\.otf)
+
+- url: /(.*\.rss)
+  mime_type: application/rss+xml
+  static_files: app/\1
+  upload: app/(.*\.rss)
+  expiration: "1h"
+
+- url: /(.*\.safariextz)
+  mime_type: application/octet-stream
+  static_files: app/\1
+  upload: app/(.*\.safariextz)
+
+- url: /(.*\.scss)
+  mime_type: application/octet-stream
+  static_files: app/\1
+  upload: app/(.*\.scss)
+
+# - url: /(.*\.(svg|svgz))
+#  mime_type: images/svg+xml
+#  static_files: app/\1
+#  upload: app/(.*\.(svg|svgz))
+
+- url: /(.*\.swf)
+  mime_type: application/x-shockwave-flash
+  static_files: app/\1
+  upload: app/(.*\.swf)
+
+- url: /(.*\.ttf)
+  mime_type: font/truetype
+  static_files: app/\1
+  upload: app/(.*\.ttf)
+
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: app/\1
+  upload: app/(.*\.txt)
+
+- url: /(.*\.unity3d)
+  mime_type: application/vnd.unity
+  static_files: app/\1
+  upload: app/(.*\.unity3d)
+
+- url: /(.*\.webm)
+  mime_type: video/webm
+  static_files: app/\1
+  upload: app/(.*\.webm)
+
+- url: /(.*\.webp)
+  mime_type: image/webp
+  static_files: app/\1
+  upload: app/(.*\.webp)
+
+- url: /(.*\.woff)
+  mime_type: application/x-font-woff
+  static_files: app/\1
+  upload: app/(.*\.woff)
+
+- url: /(.*\.xml)
+  mime_type: application/xml
+  static_files: app/\1
+  upload: app/(.*\.xml)
+  expiration: "1h"
+
+- url: /(.*\.xpi)
+  mime_type: application/x-xpinstall
+  static_files: app/\1
+  upload: app/(.*\.xpi)
+
+# image files
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png|svg))
+  static_files: app/\1
+  upload: app/(.*\.(bmp|gif|ico|jpeg|jpg|png|svg))
+
+# map files
+- url: /(.*\.map)
+  static_files: app/\1
+  upload: app/(.*\.map)
+
+# audio files
+- url: /(.*\.(mid|midi|mp3|wav))
+  static_files: app/\1
+  upload: app/(.*\.(mid|midi|mp3|wav))  
+
+# windows files
+- url: /(.*\.(doc|exe|ppt|rtf|xls))
+  static_files: app/\1
+  upload: app/(.*\.(doc|exe|ppt|rtf|xls))
+
+# compressed files
+- url: /(.*\.(bz2|gz|rar|tar|tgz|zip))
+  static_files: app/\1
+  upload: app/(.*\.(bz2|gz|rar|tar|tgz|zip))
+
+# index files
+- url: /(.+)/
+  static_files: app/\1/index.html
+  upload: app/(.+)/index.html
+  expiration: "15m"
+
+- url: /(.+)
+  static_files: app/\1/index.html
+  upload: app/(.+)/index.html
+  expiration: "15m"
+
+# site root
+- url: /
+  static_files: app/index.html
+  upload: app/index.html
+  expiration: "15m"

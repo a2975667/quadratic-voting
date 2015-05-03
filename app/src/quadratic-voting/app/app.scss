@@ -25,43 +25,53 @@ qv-app {
 				
 			}
 		}
-		> .ballot-item {
-			border-top: 1px solid grey;
-			padding: 20px 0 10px;
-			> h4.question {
-				margin-top: 0;
-			}
-			> ul.options {
-				> li.option {
-					padding: 4px 4px;
-					$border: 1px solid rgba(black, .1);
-					border-top: $border;
-					&:last-child {
-						border-bottom: $border;
-					}
-					> .buttons {
-						display: inline-block;
-						width: 60px;
-						> button {
-							font-size: 16px;
-							border: 0;
-							background: rgba(black, .1);
-							border-radius: 1px;
+		> .ballot {
+			> .ballot-item {
+				$border: 1px solid grey;
+				border-top: $border;
+				padding: 20px 0 10px;
+				&:last-child {
+					border-bottom: $border;
+				}
+				> h4.question {
+					margin-top: 0;
+				}
+				> ul.options {
+					> li.option {
+						padding: 4px 4px;
+						$border: 1px solid rgba(black, .1);
+						border-top: $border;
+						&:last-child {
+							border-bottom: $border;
 						}
-					}
-					> .label {
-						display: inline-block;
-						width: 100px;
-					}
-					> .vote-count {
-						display: inline-block;
-						width: 100px;
-					}
-					> .vote-meter {
-						// see below
+						> .buttons {
+							display: inline-block;
+							width: 60px;
+							> button {
+								font-size: 16px;
+								border: 0;
+								background: rgba(black, .1);
+								border-radius: 1px;
+							}
+						}
+						> .label {
+							display: inline-block;
+							width: 100px;
+						}
+						> .vote-count {
+							display: inline-block;
+							width: 100px;
+						}
+						> .vote-meter {
+							// see below
+						}
 					}
 				}
 			}
+		}
+		> .about {
+			margin-top: 40px;
+			color: rgba(black, .5);
 		}
 	}
 
