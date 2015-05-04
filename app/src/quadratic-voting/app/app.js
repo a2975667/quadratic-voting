@@ -87,10 +87,17 @@ QuadraticVoting.App.controller = function ($scope, $element) {
 		return value;
 	}
 	
-	_.getVoteCount = function (option) {
+	_.getVoteCount = function (option, asArray) {
 		var count = 0;
 		var voteOption = getVoteOption(option);
 		count += voteOption.votes;
+		if (asArray && count) {
+			var array = [];
+			for (var i=0; i<count; i++) {
+				array.push(i);
+			}
+			return array;
+		}
 		return count;
 	}
 	

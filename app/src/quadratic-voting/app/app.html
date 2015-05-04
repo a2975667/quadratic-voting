@@ -2,10 +2,9 @@
 <div class="inner">
   <div class="instructions">
     <h1>What's for dinner?</h1>
-    <p>Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you quadratically more.</p>
-    <h4>Votes cost:</h4>
+    <p>Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you more tokens for each vote.</p>
     <ul>
-      <li ng-repeat="i in [1,2,3,4,5]">{{i}} vote : {{getVoteCost(i)}} tokens</li>
+      <li ng-repeat="i in [1,2,3,4]">{{i}} vote : {{getVoteCost(i)}} tokens</li>
       <!--.votes-total {{votesPerPerson}} votes per person-->
     </ul>
   </div>
@@ -27,7 +26,7 @@
           <div class="label">{{option.name}}</div>
           <div class="vote-count">{{getVoteCount(option)}} votes</div>
           <div class="vote-meter">
-            <div style="width: {{(getVoteCount(option) * 20)}}px" class="inner"></div>
+            <div ng-repeat="vote in getVoteCount(option, true)" style="width: 20px" class="inner"></div>
           </div>
         </li>
       </ul>

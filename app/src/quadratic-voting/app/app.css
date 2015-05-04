@@ -15,6 +15,8 @@ qv-app {
   qv-app > .inner > .votes-remaining {
     border-top: 1px solid grey;
     padding: 10px 0; }
+    qv-app > .inner > .votes-remaining > .vote-meter > .inner {
+      background: rgba(255, 215, 0, 0.5); }
   qv-app > .inner > .ballot > .ballot-item {
     border-top: 1px solid grey;
     padding: 20px 0 10px; }
@@ -50,12 +52,15 @@ qv-app {
     color: rgba(0, 0, 0, 0.5); }
   qv-app .vote-meter {
     display: inline-block;
-    width: 100%;
     height: 10px;
-    background: rgba(0, 0, 0, 0.1); }
+    background: rgba(0, 0, 0, 0.08);
+    font-size: 0;
+    margin-top: 4px; }
     qv-app .vote-meter > .inner {
+      display: inline-block;
       background: rgba(0, 128, 0, 0.5);
       min-width: 2px;
-      height: 100%; }
+      height: 10px;
+      margin-right: 1px; }
 
 /*# sourceMappingURL=app.css.map */

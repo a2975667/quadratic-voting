@@ -1,10 +1,9 @@
 .inner
 	.instructions
 		h1 What's for dinner?
-		p Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you quadratically more.
-		h4 Votes cost:
+		p Vote for what you'd like to eat. You have <b>{{votesPerPerson}}</b> tokens to allocate however you like. You can vote for an item more than once, but it will cost you more tokens for each vote.
 		ul
-			li(ng-repeat='i in [1,2,3,4,5]') {{i}} vote : {{getVoteCost(i)}} tokens
+			li(ng-repeat='i in [1,2,3,4]') {{i}} vote : {{getVoteCost(i)}} tokens
 			//.votes-total {{votesPerPerson}} votes per person
 	.votes-remaining
 		.label You have {{getVotesRemaining()}} tokens left
@@ -21,7 +20,7 @@
 					.label {{option.name}}
 					.vote-count {{getVoteCount(option)}} votes
 					.vote-meter
-						.inner(style='width: {{(getVoteCount(option) * 20)}}px')
+						.inner(ng-repeat='vote in getVoteCount(option, true)' style='width: 20px')
 	.about
 		h4 About
 		p This is an prototype of quadratic voting, as inspired by <a href='http://www.spectator.co.uk/features/9512322/humans-are-doing-democracy-wrong-bees-are-doing-it-right/'>this article on bees</a> and <a href='http://ericposner.com/quadratic-voting/'>Eric Posner's proposal</a>.
