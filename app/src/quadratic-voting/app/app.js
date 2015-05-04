@@ -74,7 +74,7 @@ QuadraticVoting.App.controller = function ($scope, $element) {
 		console.error('Not found');
 	}
 	
-	_.votesPerPerson = _.ballotItems.length * 10;
+	_.votesPerPerson = _.ballotItems.length * 3;
 	_.getVotesRemaining = function() {
 		var numVotesUsed = 0;
 		$(_.votes).each(function(i, voteOption) {
@@ -124,13 +124,23 @@ QuadraticVoting.App.controller = function ($scope, $element) {
 	}
 	
 	_.getVoteCost = function(numVotes) {
-		var value = quadraticEquation(numVotes);
+		var equation = powerOfTwo;
+		var value = equation(numVotes);
 		return value;
 	}
 	
 	function quadraticEquation (numVotes) {
-		// TODO: This is not a quadratic equation. Is it logarithmic?
-		var cost = numVotes * numVotes;
+		// TODO: Add a quadratic equation.
+		return;
+	}
+	
+	function squared (numVotes) {
+		var cost = Math.pow(2, numVotes - 1);
+		return cost;
+	}
+	
+	function powerOfTwo (numVotes) {
+		var cost = Math.pow(2, numVotes - 1);
 		return cost;
 	}
 
